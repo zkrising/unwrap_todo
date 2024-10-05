@@ -1,0 +1,13 @@
+[package]
+name = "unwrap_todo"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+authors = ["zk <zkldi.dev@gmail.com>"]
+documentation = "https://docs.rs/unwrap_todo"
+description = "Provides Option::todo and Result::todo methods"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
