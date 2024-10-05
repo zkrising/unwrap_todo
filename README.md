@@ -8,12 +8,12 @@ Add the crate to your dependencies:
 
 ```toml
 [dependencies]
-unwrap_todo = "0.1.0"
+unwrap_todo = "0.1.1"
 ```
 
 Then use `.todo()` in lieu of `.unwrap()` to indicate temporary error handling.
 
-```ignore
+```rust
 // Make sure you import the trait. Otherwise, these functions will not be available.
 use unwrap_todo::UnwrapTodo;
 
@@ -32,7 +32,7 @@ However, `.unwrap()` is also used for legitimate purposes, such as when you *act
 
 A good example of this would be static Regex construction:
 
-```ignore
+```rust
 static REGEX: LazyCell<Regex> = LazyCell::new(|| Regex::new("^[a-f]{3}$").unwrap());
 ```
 

@@ -1,7 +1,22 @@
 #![deny(missing_docs)]
 #![forbid(unsafe_code)]
 #![no_std]
-#![doc = include_str!("../README.md")]
+//! # Unwrap Todo
+//!
+//! Provides `Option::todo` and `Result::todo` methods by providing an [`UnwrapTodo`] extension trait.
+//!
+//! # Usage
+//!
+//! ```ignore
+//! // Make sure you import the trait. Otherwise, these functions will not be available.
+//! use unwrap_todo::UnwrapTodo;
+//!
+//! // handle this file not being here/valid later. I'm just prototyping!
+//! let file_content = std::fs::read("greeting.txt").todo();
+//! let as_string = String::from_utf8(file_content).todo();
+//!
+//! assert_eq!(as_string, "hey!")
+//! ```
 
 use core::fmt::Debug;
 
