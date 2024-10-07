@@ -71,6 +71,7 @@ impl<T> UnwrapTodo for Option<T> {
 	///
 	/// assert_eq!(extension_str, "txt")
 	/// ```
+	#[track_caller]
 	fn todo(self) -> Self::Target {
 		match self {
 			Some(t) => t,
@@ -118,6 +119,7 @@ where
 	///
 	/// assert_eq!(as_string, "hey!")
 	/// ```
+	#[track_caller]
 	fn todo(self) -> Self::Target {
 		match self {
 			Ok(t) => t,
