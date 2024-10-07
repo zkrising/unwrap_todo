@@ -71,15 +71,21 @@ impl<T> UnwrapTodo for Option<T> {
 	///
 	/// assert_eq!(extension_str, "txt")
 	/// ```
+	#[inline]
 	#[track_caller]
 	fn todo(self) -> Self::Target {
 		match self {
 			Some(t) => t,
-			None => {
-				panic!("None handling not yet implemented")
-			}
+			None => unwrap_none(),
 		}
 	}
+}
+
+#[cold]
+#[inline(never)]
+#[track_caller]
+fn unwrap_none() -> ! {
+	panic!("None handling not yet implemented")
 }
 
 impl<T, E> UnwrapTodo for Result<T, E>
@@ -119,13 +125,19 @@ where
 	///
 	/// assert_eq!(as_string, "hey!")
 	/// ```
+	#[inline]
 	#[track_caller]
 	fn todo(self) -> Self::Target {
 		match self {
 			Ok(t) => t,
-			Err(e) => {
-				panic!("Err handling not yet implemented: {e:?}")
-			}
+			Err(e) => unwrap_err(&e),
 		}
 	}
+}
+
+#[cold]
+#[inline(never)]
+#[track_caller]
+fn unwrap_err(e: &dyn Debug) -> ! {
+	panic!("Err handling not yet implemented: {e:?}")
 }
