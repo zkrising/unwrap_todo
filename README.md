@@ -8,7 +8,7 @@ Add the crate to your dependencies:
 
 ```toml
 [dependencies]
-unwrap_todo = "0.1.1"
+unwrap_todo = "0.1.2"
 ```
 
 Then use `.todo()` in lieu of `.unwrap()` to indicate temporary error handling.
